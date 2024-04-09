@@ -1,0 +1,123 @@
+[
+    {
+      "id": 1,
+      "estate_title": "Luxury Beachfront Villa",
+      "segment_name": "Luxury",
+      "description": "Exquisite beachfront villa with panoramic ocean views.",
+      "price": "$5,000,000",
+      "status": "sale",
+      "area": "5000 sq ft",
+      "location": "Malibu, California",
+      "facilities": ["5 Bedrooms", "Infinity Pool", "Private Beach Access"],
+      "image": "beachfront-villa.jpg"
+    },
+    {
+      "id": 2,
+      "estate_title": "Private Island Retreat",
+      "segment_name": "Luxury",
+      "description": "Own your private island paradise with luxurious amenities.",
+      "price": "$10,000,000",
+      "status": "sale",
+      "area": "20 acres",
+      "location": "Caribbean Sea",
+      "facilities": ["Private Beaches", "Luxury Villas", "Helipad"],
+      "image": "private-island.jpg"
+    },
+    {
+      "id": 3,
+      "estate_title": "Mansion in Beverly Hills",
+      "segment_name": "Luxury",
+      "description": "Elegant mansion in the heart of Beverly Hills.",
+      "price": "$15,000,000",
+      "status": "sale",
+      "area": "8000 sq ft",
+      "location": "Beverly Hills, California",
+      "facilities": ["10 Bedrooms", "Home Theater", "Spa"],
+      "image": "beverly-hills-mansion.jpg"
+    },
+    {
+      "id": 4,
+      "estate_title": "Luxury Penthouse",
+      "segment_name": "Luxury",
+      "description": "Penthouse suite with stunning city skyline views.",
+      "price": "$3,000,000",
+      "status": "sale",
+      "area": "3000 sq ft",
+      "location": "New York City, NY",
+      "facilities": ["Floor-to-ceiling Windows", "Rooftop Terrace", "Gourmet Kitchen"],
+      "image": "luxury-penthouse.jpg"
+    },
+    {
+      "id": 5,
+      "estate_title": "Seaside Mansion",
+      "segment_name": "Luxury",
+      "description": "Sprawling mansion overlooking the ocean.",
+      "price": "$12,000,000",
+      "status": "sale",
+      "area": "12000 sq ft",
+      "location": "Miami Beach, Florida",
+      "facilities": ["Private Dock", "Poolside Cabanas", "Home Gym"],
+      "image": "seaside-mansion.jpg"
+    },
+    {
+      "id": 6,
+      "estate_title": "Luxury Resort",
+      "segment_name": "Luxury",
+      "description": "Exclusive resort with world-class amenities and services.",
+      "price": "$20,000,000",
+      "status": "sale",
+      "area": "50 acres",
+      "location": "Hawaii, USA",
+      "facilities": ["Spa & Wellness Center", "Multiple Restaurants", "Private Villas"],
+      "image": "luxury-resort.jpg"
+    },
+    {
+      "id": 7,
+      "estate_title": "Contemporary Villa",
+      "segment_name": "Luxury",
+      "description": "Modern villa with sleek design and luxury interiors.",
+      "price": "$8,500,000",
+      "status": "sale",
+      "area": "6000 sq ft",
+      "location": "Los Angeles, California",
+      "facilities": ["Outdoor Entertainment Area", "Home Automation", "Wine Cellar"],
+      "image": "contemporary-villa.jpg"
+    },
+    {
+      "id": 8,
+      "estate_title": "Oceanfront Penthouse",
+      "segment_name": "Luxury",
+      "description": "Luxurious penthouse with direct ocean views.",
+      "price": "$4,500,000",
+      "status": "sale",
+      "area": "3500 sq ft",
+      "location": "Miami, Florida",
+      "facilities": ["Spacious Balcony", "Private Elevator", "Designer Kitchen"],
+      "image": "oceanfront-penthouse.jpg"
+    },
+    {
+      "id": 9,
+      "estate_title": "Private Villa in the Alps",
+      "segment_name": "Luxury",
+      "description": "Secluded villa nestled in the scenic Alps.",
+      "price": "$7,500,000",
+      "status": "sale",
+      "area": "7000 sq ft",
+      "location": "Swiss Alps",
+      "facilities": ["Ski-In/Ski-Out Access", "Sauna & Jacuzzi", "Panoramic Views"],
+      "image": "alps-villa.jpg"
+    },
+    {
+      "id": 10,
+      "estate_title": "Exclusive Mountain Retreat",
+      "segment_name": "Luxury",
+      "description": "Exclusive retreat surrounded by mountains and nature.",
+      "price": "$9,000,000",
+      "status": "sale",
+      "area": "10000 sq ft",
+      "location": "Aspen, Colorado",
+      "facilities": ["Indoor Pool", "Private Theater", "Guest Cabins"],
+      "image": "mountain-retreat.jpg"
+    }
+  ]
+  
