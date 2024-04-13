@@ -9,7 +9,7 @@
       "area": "5000 sq ft",
       "location": "Malibu, California",
       "facilities": ["5 Bedrooms", "Infinity Pool", "Private Beach Access"],
-      "image": "beachfront-villa.jpg"
+      "image": "https://i.ibb.co/DfPTr45/lbv.jpg"
     },
     {
       "id": 2,
@@ -21,7 +21,7 @@
       "area": "20 acres",
       "location": "Caribbean Sea",
       "facilities": ["Private Beaches", "Luxury Villas", "Helipad"],
-      "image": "private-island.jpg"
+      "image": "https://i.ibb.co/JB7mc2d/pir.jpg"
     },
     {
       "id": 3,
@@ -33,7 +33,7 @@
       "area": "8000 sq ft",
       "location": "Beverly Hills, California",
       "facilities": ["10 Bedrooms", "Home Theater", "Spa"],
-      "image": "beverly-hills-mansion.jpg"
+      "image": "https://i.ibb.co/GHbrJYr/mibh.jpg"
     },
     {
       "id": 4,
@@ -45,7 +45,7 @@
       "area": "3000 sq ft",
       "location": "New York City, NY",
       "facilities": ["Floor-to-ceiling Windows", "Rooftop Terrace", "Gourmet Kitchen"],
-      "image": "luxury-penthouse.jpg"
+      "image": "https://i.ibb.co/hY8rnVk/lp.jpg"
     },
     {
       "id": 5,
@@ -57,7 +57,7 @@
       "area": "12000 sq ft",
       "location": "Miami Beach, Florida",
       "facilities": ["Private Dock", "Poolside Cabanas", "Home Gym"],
-      "image": "seaside-mansion.jpg"
+      "image": "https://i.ibb.co/n6JcQVQ/sm.jpg"
     },
     {
       "id": 6,
@@ -69,7 +69,7 @@
       "area": "50 acres",
       "location": "Hawaii, USA",
       "facilities": ["Spa & Wellness Center", "Multiple Restaurants", "Private Villas"],
-      "image": "luxury-resort.jpg"
+      "image": "https://i.ibb.co/BGMD04k/lr.jpg"
     },
     {
       "id": 7,
@@ -81,7 +81,7 @@
       "area": "6000 sq ft",
       "location": "Los Angeles, California",
       "facilities": ["Outdoor Entertainment Area", "Home Automation", "Wine Cellar"],
-      "image": "contemporary-villa.jpg"
+      "image": "https://i.ibb.co/HtCG6Q6/cv.jpg"
     },
     {
       "id": 8,
@@ -93,7 +93,7 @@
       "area": "3500 sq ft",
       "location": "Miami, Florida",
       "facilities": ["Spacious Balcony", "Private Elevator", "Designer Kitchen"],
-      "image": "oceanfront-penthouse.jpg"
+      "image": "https://i.ibb.co/8bFnnF4/op.jpg"
     },
     {
       "id": 9,
@@ -105,7 +105,7 @@
       "area": "7000 sq ft",
       "location": "Swiss Alps",
       "facilities": ["Ski-In/Ski-Out Access", "Sauna & Jacuzzi", "Panoramic Views"],
-      "image": "alps-villa.jpg"
+      "image": "https://i.ibb.co/7G7Z2Ff/pvita.jpg"
     },
     {
       "id": 10,
@@ -117,7 +117,15 @@
       "area": "10000 sq ft",
       "location": "Aspen, Colorado",
       "facilities": ["Indoor Pool", "Private Theater", "Guest Cabins"],
-      "image": "mountain-retreat.jpg"
+      "image": "  https://i.ibb.co/ZcXFpGy/emr.jpg"
     }
   ]
   
+
+
+
+
+
+
+
+

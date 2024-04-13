@@ -7,7 +7,7 @@ const Nav = () => {
   const { user, logOutUser, loading } = useContext(MyContext);
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 mt-5">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -59,7 +59,7 @@ const Nav = () => {
               <Loading />
             ) : (
               <>
-                <div className="avatar">
+                <div className="avatar lg:tooltip" data-tip={user?.displayName}>
                   <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img className="w-10 h-10" src={user.photoURL} />
                   </div>
