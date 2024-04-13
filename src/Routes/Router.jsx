@@ -3,6 +3,8 @@ import Layout from "../Layout/Layout";
 import Home from "../Pages/Home";
 import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
+import UpdateProfile from "../Pages/UpdateProfile";
+import PrivateRoute from "../Component/PrivateRoute";
 
 const Router =createBrowserRouter([
     {
@@ -11,7 +13,8 @@ const Router =createBrowserRouter([
         children:[
             {
                 path:"/",
-                element: <Home/>
+                element: <Home/>,
+                loader: () => fetch('/data.json')
             },
             {
                 path: '/login',
@@ -20,6 +23,10 @@ const Router =createBrowserRouter([
             {
                 path: '/register',
                 element: <Register/>
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoute><UpdateProfile/></PrivateRoute>
             }
         ]
     }

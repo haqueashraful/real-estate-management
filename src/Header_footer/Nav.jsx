@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { MyContext } from "../Context/MyContext";
+import Loading from "../Component/Loading";
 
 const Nav = () => {
+  const { user, logOutUser, loading } = useContext(MyContext);
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -25,18 +30,52 @@ const Nav = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <NavLink>Home</NavLink>
+            <NavLink to="/">Home</NavLink>
+            {user && (
+              <NavLink to="/profile" className="btn">
+                Update Profile
+              </NavLink>
+            )}
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">R-Estate</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <NavLink className="btn">Home</NavLink>
+          <NavLink to="/" className="btn">
+            Home
+          </NavLink>
+          {user && (
+            <NavLink to="/profile" className="btn">
+              Update Profile
+            </NavLink>
+          )}
         </ul>
       </div>
       <div className="navbar-end ">
-        <NavLink to='/login' className="btn">Login</NavLink>
+        {user ? (
+          <>
+            {loading ? (
+              <Loading />
+            ) : (
+              <>
+                <div className="avatar">
+                  <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                    <img className="w-10 h-10" src={user.photoURL} />
+                  </div>
+                </div>
+                <h1>{user.displayName}</h1>
+                <button onClick={logOutUser} className="btn">
+                  SignOut
+                </button>
+              </>
+            )}
+          </>
+        ) : (
+          <NavLink to="/login" className="btn">
+            Login
+          </NavLink>
+        )}{" "}
       </div>
     </div>
   );
