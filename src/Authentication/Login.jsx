@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useContext } from "react";
@@ -7,6 +7,9 @@ import { FaGithub, FaGoogle, FaXTwitter } from "react-icons/fa6";
 
 const Login = () => {
   const { setUser, logInUser, signInWithGoogle, setLoading } = useContext(MyContext);
+  const location = useLocation()
+  console.log(location)
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -20,6 +23,7 @@ const Login = () => {
       console.log(user);
       setUser(user);
       setLoading(false);
+      navigate(location?.state ? location.state : '/')
     })
     .catch((error) => {
       console.log(error.message);
@@ -32,6 +36,7 @@ const Login = () => {
         console.log(result);
         setUser(result.user);
         setLoading(false);
+        navigate(location?.state ? location.state : '/')
       })
       .catch((error) => {
         console.log(error.message);
