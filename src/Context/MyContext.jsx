@@ -34,11 +34,11 @@ const MyContextProvider = ({ children }) => {
   useEffect(() => {
     if (load) {
       updateProfile(auth.currentUser, {
-        displayName: user.displayName,
-        photoURL: user.photoURL
+        displayName: user?.displayName,
+        photoURL: user?.photoURL
       })
         .then(() => {
-          console.log("Profile updated successfully:", user.displayName, user.photoURL);
+          console.log("Profile updated successfully:", user?.displayName, user?.photoURL);
           setLoading(false);
         })
         .catch((error) => {
@@ -46,10 +46,9 @@ const MyContextProvider = ({ children }) => {
           setLoading(false);
         });
     }
-  }, [load]);
+  }, [load, user]);
 
   const profileUpdate = (name, photo_url) => {
-    setLoading(true);
     setUser({
       ...user,
       displayName: name || user?.displayName,

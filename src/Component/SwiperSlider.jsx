@@ -5,7 +5,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './style.css';
 import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
+import { useContext } from "react";
+import { MyContext } from "../Context/MyContext";
 const SwiperSlider = () => {
+  const {myData} = useContext(MyContext);
+  console.log(myData)
     return (
         <>
         <Swiper
@@ -23,9 +27,18 @@ const SwiperSlider = () => {
           pagination={true}
           navigation={true}
           modules={[EffectCoverflow, Pagination, Navigation]}
-          className="mySwiper"
+          className="mySwiper w-[300px] h-[300px]"
         >
-          <SwiperSlide>
+          {
+            myData.map((item) => {
+              return (
+                <SwiperSlide key={item.id}>
+                  <img className=" w-full h-full" src={item.image} />
+                </SwiperSlide>
+              )
+            })
+          }
+          {/* <SwiperSlide>
             <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
           </SwiperSlide>
           <SwiperSlide>
@@ -51,7 +64,7 @@ const SwiperSlider = () => {
           </SwiperSlide>
           <SwiperSlide>
             <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       </>
     );
