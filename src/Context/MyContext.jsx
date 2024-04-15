@@ -22,7 +22,7 @@ const MyContextProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
 
   useEffect(() => {
-    fetch("/data.json")
+    fetch("data.json")
       .then((response) => response.json())
       .then((data) => {
         setMyData(data)

@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const EstateCard = ({ item }) => {
+  const navigate = useNavigate();
   const {
     id,
     estate_title,
@@ -9,7 +12,7 @@ const EstateCard = ({ item }) => {
     area,
     location,
     facilities,
-    image
+    image,
   } = item;
 
   return (
@@ -27,7 +30,7 @@ const EstateCard = ({ item }) => {
           <p className="text-gray-800 font-bold">{price}</p>
           <span
             className={`${
-              status === 'available' ? 'text-green-500' : 'text-red-500'
+              status === "available" ? "text-green-500" : "text-red-500"
             } font-semibold`}
           >
             {status}
@@ -45,9 +48,15 @@ const EstateCard = ({ item }) => {
             ))}
           </ul>
         </div>
-      </div>
-      <div className="px-6 pb-4">
-        <p className="text-sm text-gray-600">ID: {id}</p>
+        <div className="px-6 pb-4">
+          <p className="text-sm text-gray-600">ID: {id}</p>
+        </div>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => navigate(`/estatedetails/${id}`)}
+        >
+          View Property
+        </button>
       </div>
     </div>
   );

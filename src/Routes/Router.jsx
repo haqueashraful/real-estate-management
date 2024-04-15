@@ -5,6 +5,7 @@ import Login from "../Authentication/Login";
 import Register from "../Authentication/Register";
 import UpdateProfile from "../Pages/UpdateProfile";
 import PrivateRoute from "../Component/PrivateRoute";
+import EstatteDetails from "../Component/EstatteDetails";
 
 const Router =createBrowserRouter([
     {
@@ -27,6 +28,11 @@ const Router =createBrowserRouter([
             {
                 path: '/profile',
                 element: <PrivateRoute><UpdateProfile/></PrivateRoute>
+            },
+            {
+                path: '/estatedetails/:id',
+                element: <EstatteDetails/>,
+                loader: ()=>fetch('/data.json')
             }
         ]
     }
