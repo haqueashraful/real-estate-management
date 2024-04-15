@@ -16,7 +16,7 @@ const EstateCard = ({ item }) => {
   } = item;
 
   return (
-    <div className="max-w-md bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="max-w-md relative bg-white rounded-lg shadow-md overflow-hidden">
       <img
         className="w-full h-48 object-cover"
         src={image}
@@ -26,15 +26,9 @@ const EstateCard = ({ item }) => {
         <h2 className="text-xl font-bold mb-2">{estate_title}</h2>
         <p className="text-gray-600 text-sm mb-2">{segment_name}</p>
         <p className="text-gray-700 mb-4">{description}</p>
-        <div className="flex justify-between items-center mb-4">
+        <div className="mb-4">
           <p className="text-gray-800 font-bold">{price}</p>
-          <span
-            className={`${
-              status === "available" ? "text-green-500" : "text-red-500"
-            } font-semibold`}
-          >
-            {status}
-          </span>
+         
         </div>
         <div className="flex justify-between items-center mb-4">
           <p className="text-sm text-gray-600">Area: {area} sq ft</p>
@@ -48,9 +42,6 @@ const EstateCard = ({ item }) => {
             ))}
           </ul>
         </div>
-        <div className="px-6 pb-4">
-          <p className="text-sm text-gray-600">ID: {id}</p>
-        </div>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={() => navigate(`/estatedetails/${id}`)}
@@ -58,6 +49,16 @@ const EstateCard = ({ item }) => {
           View Property
         </button>
       </div>
+        <div className="absolute top-5 left-0 bg-red-500 rounded-r-full text-white pl-5 ">
+          <p className="text-lg font-bold text-white px-2">{id}</p>
+        </div>
+        <div className="absolute top-5 right-0 bg-red-500 rounded-l-full text-white pr-5 ">
+        <span
+            className=' font-bold text-lg px-2 rounded-xl text-white'
+          >
+            {status}
+          </span>
+        </div>
     </div>
   );
 };

@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { MyContext } from "../Context/MyContext";
 
 const Register = () => {
   const { profileUpdate, registerUser, setLoading } = useContext(MyContext);
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -20,6 +21,7 @@ const Register = () => {
         console.log(userCredential);
         profileUpdate(data.name, data.photo_url);
         setLoading(false);
+        navigate('/login')
       })
       .catch((error) => {
         console.log(error.message);

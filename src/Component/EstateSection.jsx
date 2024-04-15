@@ -1,11 +1,6 @@
-import { useContext } from "react";
 import EstateCard from "./EstateCard";
-import { MyContext } from "../Context/MyContext";
 
 const EstateSection = ({data}) => {
-  const { myData } = useContext(MyContext);
-  console.log(myData)
-
 
   return (
     <div className="my-9">

@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { MyContext } from "../Context/MyContext";
-import Loading from "../Component/Loading";
 
 const UpdateProfile = () => {
   const { profileUpdate, user, setLoad, Loading } = useContext(MyContext);
@@ -12,8 +11,6 @@ const UpdateProfile = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // Handle form submission logic here
-    console.log(data);
     profileUpdate(data.name, data.photo_url);
     setLoad(true);
   };

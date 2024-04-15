@@ -1,15 +1,15 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MyContext } from "../Context/MyContext";
-import { FaGithub, FaGoogle, FaXTwitter } from "react-icons/fa6";
+import { FaEye, FaGithub, FaGoogle, FaXTwitter } from "react-icons/fa6";
 
 const Login = () => {
   const { setUser, logInUser, signInWithGoogle, setLoading } = useContext(MyContext);
   const location = useLocation()
-  console.log(location)
   const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -20,26 +20,25 @@ const Login = () => {
     signInWithGoogle()
     .then((result) => {
       const user = result.user;
-      console.log(user);
       setUser(user);
       setLoading(false);
       navigate(location?.state ? location.state : '/')
     })
     .catch((error) => {
-      console.log(error.message);
+      toast.error(error.message);
     });
   }
 
   const onSubmit = (data) => {
     logInUser(data.email, data.password)
       .then((result) => {
-        console.log(result);
         setUser(result.user);
         setLoading(false);
         navigate(location?.state ? location.state : '/')
+        toast.success("Login Successful");
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error(error.message);
       });
     if (Object.keys(errors).length > 0) {
       Object.values(errors).forEach((error) => {
@@ -47,7 +46,6 @@ const Login = () => {
       });
     } else {
       console.log(data);
-      toast.success("Login successful!");
     }
   };
 
@@ -73,8 +71,9 @@ const Login = () => {
           )}
         </div>
         <div className="space-y-1 text-sm">
-          <label htmlFor="password" className="block text-gray-600">
-            Password
+          <label htmlFor="password" className=" text-gray-600 flex justify-between items-center">
+            <span>Password</span>
+            <span className="cursor-pointer" onClick={()=>setShowPassword(!showPassword)}><FaEye></FaEye></span>
           </label>
           <input
             {...register("password", {
@@ -89,7 +88,7 @@ const Login = () => {
                   "Password must contain at least one uppercase and one lowercase letter",
               },
             })}
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="*****"
             className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
           />

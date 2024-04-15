@@ -41,7 +41,7 @@ const Nav = () => {
         <Link to='/' className="btn btn-ghost text-xl">R-Estate</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 flex gap-5">
           <NavLink to="/" className="btn">
             Home
           </NavLink>
@@ -52,7 +52,7 @@ const Nav = () => {
           )}
         </ul>
       </div>
-      <div className="navbar-end ">
+      <div className="navbar-end gap-6">
         {user ? (
           <>
             {loading ? (
@@ -64,7 +64,6 @@ const Nav = () => {
                     <img className="w-10 h-10" src={user.photoURL} />
                   </div>
                 </div>
-                <h1>{user.displayName}</h1>
                 <button onClick={logOutUser} className="btn">
                   SignOut
                 </button>

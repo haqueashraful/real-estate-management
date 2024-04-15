@@ -6,11 +6,13 @@ import Register from "../Authentication/Register";
 import UpdateProfile from "../Pages/UpdateProfile";
 import PrivateRoute from "../Component/PrivateRoute";
 import EstatteDetails from "../Component/EstatteDetails";
+import ErrorPage from "../Pages/ErrorPage";
 
 const Router =createBrowserRouter([
     {
         path:"/",
         element: <Layout></Layout>,
+        errorElement: <ErrorPage/>,
         children:[
             {
                 path:"/",
@@ -31,7 +33,7 @@ const Router =createBrowserRouter([
             },
             {
                 path: '/estatedetails/:id',
-                element: <EstatteDetails/>,
+                element: <PrivateRoute><EstatteDetails/></PrivateRoute>,
                 loader: ()=>fetch('/data.json')
             }
         ]
