@@ -1,8 +1,9 @@
 import Banner from "../Component/Banner";
-import EstateCard from "../Component/EstateCard";
 import { useContext } from "react";
 import { MyContext } from "../Context/MyContext";
 import {useLoaderData} from "react-router-dom";
+import EstateSection from "../Component/EstateSection";
+import SwipeBanner from "../Component/SwipeBanner";
 
 const Home = () => {
   const { myData } = useContext(MyContext);
@@ -20,7 +21,8 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <EstateCard />
+      <EstateSection />
+      <SwipeBanner/>
     </div>
   );
 };

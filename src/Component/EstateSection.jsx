@@ -1,17 +1,22 @@
 import { useContext } from "react";
-import Context from "../Context/Context";
+import EstateCard from "./EstateCard";
+import { MyContext } from "../Context/MyContext";
 
 const EstateSection = () => {
-  // Access the 'data' state from the context using useContext
-  const { data } = useContext();
+  const { myData } = useContext(MyContext);
+  console.log(myData)
 
-  // Log the 'data' state to the console for debugging
-  console.log(data);
 
   return (
-    <div>
-      {/* Render content based on the 'data' state */}
-      {/* You can map over 'data' and render individual estate components here */}
+    <div className="my-9">
+      <div>
+        <h1 className="text-3xl font-bold mb-4">Estate Section</h1>
+      </div>
+     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+     {
+        myData.map((item) => <EstateCard item={item} key={item.id}/>)
+      }
+     </div>
     </div>
   );
 };
