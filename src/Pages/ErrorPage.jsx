@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import notfound from "../assets/notfound.svg";
+import notfound from "../assets/error.svg";
 
 const ErrorPage = () => {
   return (
@@ -31,6 +31,7 @@ const ErrorPage = () => {
         </Link>
        </div>
       <img className=" w-full mx-auto h-4/5" src={notfound} alt="404 not found" />
+      <h1 className="absolute top-1/3 left-[15%] lg:left-1/3 text-5xl font-bold mt-5 text-center text-red-500">Not Found</h1>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { MyContext } from "../Context/MyContext";
+import { Helmet } from "react-helmet-async";
 
 const UpdateProfile = () => {
   const { profileUpdate, user, setLoad, Loading } = useContext(MyContext);
@@ -17,6 +18,9 @@ const UpdateProfile = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Update Profile</title>
+    </Helmet>
       {Loading ? (
         <Loading></Loading>
       ) : (

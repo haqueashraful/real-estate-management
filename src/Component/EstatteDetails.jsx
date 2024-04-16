@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { MyContext } from "../Context/MyContext";
 import { useLoaderData, useParams } from "react-router-dom";
 import Loading from "./Loading";
+import { Helmet } from "react-helmet-async";
 const EstateDetails = () => {
   const {loading} = useContext(MyContext)
   const data = useLoaderData()
@@ -15,6 +16,9 @@ const EstateDetails = () => {
 
   return (
     <div className="max-w-xl mx-auto p-4">
+      <Helmet>
+        <title>{estate_title}</title>
+      </Helmet>
       <div className="mb-4">
         <img src={image} alt={estate_title} className="w-full h-auto rounded-lg" />
       </div>

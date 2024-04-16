@@ -5,6 +5,7 @@ import {useLoaderData} from "react-router-dom";
 import EstateSection from "../Component/EstateSection";
 import SwipeBanner from "../Component/SwipeBanner";
 import Loading from "../Component/Loading";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const {loading} = useContext(MyContext)
@@ -14,6 +15,9 @@ const Home = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>Real-Estate-Home</title>
+      </Helmet>
       <Banner />
       <EstateSection  data={data}/>
       <SwipeBanner/>

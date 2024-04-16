@@ -24,7 +24,7 @@ const EstateCard = ({ item }) => {
       />
       <div className="px-6 py-4">
         <h2 className="text-xl font-bold mb-2">{estate_title}</h2>
-        <p className="text-gray-600 text-sm mb-2">{segment_name}</p>
+        <span className="text-lg px-5 rounded-full mb-2 bg-green-200 text-black">{segment_name}</span>
         <p className="text-gray-700 mb-4">{description}</p>
         <div className="mb-4">
           <p className="text-gray-800 font-bold">{price}</p>

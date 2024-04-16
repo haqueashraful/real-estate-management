@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { MyContext } from "../Context/MyContext";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { profileUpdate, registerUser, setLoading } = useContext(MyContext);
@@ -37,6 +38,9 @@ const Register = () => {
 
   return (
     <>
+    <Helmet>
+      <title>Register Page</title>
+    </Helmet>
       <div className="w-full mx-auto max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-50 text-gray-800">
         <h2 className="mb-3 text-3xl font-semibold text-center">
           Create your account
