@@ -1,15 +1,14 @@
 import { createContext, useEffect, useState } from "react";
-import { 
-  GoogleAuthProvider, 
-  createUserWithEmailAndPassword, 
-  onAuthStateChanged, 
-  signInWithEmailAndPassword, 
-  signInWithPopup, 
-  signOut, 
-  updateProfile 
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
-import auth from '../FireBase/Firebase.config';
-
+import auth from "../FireBase/Firebase.config";
 
 const MyContext = createContext();
 
@@ -18,6 +17,7 @@ const MyContextProvider = ({ children }) => {
   const [myData, setMyData] = useState([]);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loader, setLoader] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -25,77 +25,94 @@ const MyContextProvider = ({ children }) => {
     fetch("data.json")
       .then((response) => response.json())
       .then((data) => {
-        setMyData(data)
+        setMyData(data);
         setLoading(false);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  useEffect(() => {
-    if (load) {
-      updateProfile(auth.currentUser, {
-        displayName: user?.displayName,
-        photoURL: user?.photoURL
-      })
-        .then(() => {
-          console.log("Profile updated successfully:", user?.displayName, user?.photoURL);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error updating profile:", error.message);
-          setLoading(false);
-        });
-    }
-  }, [load, user]);
-
   const profileUpdate = (name, photo_url) => {
-    setUser({
-      ...user,
-      displayName: name || user?.displayName,
-      photoURL: photo_url || user?.photoURL
-    });
     setLoad(true);
+    updateProfile(auth.currentUser, {
+      displayName: name || user?.displayName,
+      photoURL: photo_url || user?.photoURL,
+    })
+      .then(() => {
+        console.log("Profile updated successfully");
+      })
+      .catch((error) => {
+        console.error("Error updating profile:", error.message);
+      })
+      .finally(() => {
+        setLoad(false);
+      });
   };
-  
 
   const logInUser = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    return signInWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        setLoading(false);
+        return result;
+      })
+      .catch((error) => {
+        setLoading(false);
+        throw error;
+      });
   };
 
   const registerUser = (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        setLoading(false);
+        return result;
+      })
+      .catch((error) => {
+        setLoading(false);
+        throw error;
+      });
   };
 
   const signInWithGoogle = () => {
     setLoading(true);
-    return signInWithPopup(auth, googleProvider);
+    return signInWithPopup(auth, googleProvider)
+      .then((result) => {
+        setLoading(false);
+        return result;
+      })
+      .catch((error) => {
+        setLoading(false);
+        throw error;
+      });
   };
 
-
-
   const logOutUser = () => {
-    setLoading(true)
+    setLoading(true);
     return signOut(auth)
       .then(() => {
-        setUser(null)
-      }) 
+        setUser(null);
+      })
       .catch((error) => {
         console.error("Error signing out:", error.message);
+        throw error;
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currerntUser => {
-      setUser(currerntUser);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
       setLoading(false);
-        console.log(currerntUser, 'from context');
-    })
-    return () =>{
+      setLoader(false)
+      console.log(currentUser, loading,  loader)
+    });
+    return () => {
       unsubscribe();
-    }
-  },[])
+    };
+  }, []); 
 
   const value = {
     setUser,
@@ -105,17 +122,13 @@ const MyContextProvider = ({ children }) => {
     profileUpdate,
     signInWithGoogle,
     setLoad,
-    setLoading,
+    setLoader,
+    loader,
     myData,
-    loading,
-    user
+    user,
   };
 
-  return (
-    <MyContext.Provider value={value}>
-      {children}
-    </MyContext.Provider>
-  );
+  return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
 };
 
 export { MyContext, MyContextProvider };

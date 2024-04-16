@@ -2,9 +2,10 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MyContext } from "../Context/MyContext";
 import Loading from "../Component/Loading";
+import './Nav.css'
 
 const Nav = () => {
-  const { user, logOutUser, loading } = useContext(MyContext);
+  const { user, logOutUser, loader } = useContext(MyContext);
 
   return (
     <div className="navbar bg-base-100 mt-5">
@@ -28,25 +29,25 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <NavLink to="/">Home</NavLink>
+            <NavLink className='btn-rn' to="/">Home</NavLink>
             {user && (
-              <NavLink to="/profile" className="btn">
+              <NavLink to="/profile" className="btn-rn">
                 Update Profile
               </NavLink>
             )}
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost text-xl">R-Estate</Link>
+        <Link to='/' className="btn-rn text-xl">R-Estate</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 flex gap-5">
-          <NavLink to="/" className="btn">
+          <NavLink to="/" className=" btn-rn">
             Home
           </NavLink>
           {user && (
-            <NavLink to="/profile" className="btn">
+            <NavLink to="/profile" className="btn-rn ">
               Update Profile
             </NavLink>
           )}
@@ -55,16 +56,16 @@ const Nav = () => {
       <div className="navbar-end gap-6">
         {user ? (
           <>
-            {loading ? (
+            {loader ? (
               <Loading />
             ) : (
               <>
-                <div className="avatar lg:tooltip" data-tip={user?.displayName}>
+                <div className="avatar md:tooltip" data-tip={user?.displayName}>
                   <div className="w-10 rounded-full ring ring-green-500 ring-offset-base-100 ring-offset-2">
                     <img className="w-10 h-10" src={user.photoURL} />
                   </div>
                 </div>
-                <button onClick={logOutUser} className="btn">
+                <button onClick={logOutUser} className="btn-rn">
                   SignOut
                 </button>
               </>

@@ -7,8 +7,7 @@ import { FaEye, FaGithub, FaGoogle, FaXTwitter } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-  const { setUser, logInUser, signInWithGoogle, setLoading } =
-    useContext(MyContext);
+  const { setUser, logInUser, signInWithGoogle, setLoader } = useContext(MyContext);
   const location = useLocation();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -17,13 +16,13 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const googleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
+        setLoader(true);
         const user = result.user;
-        setUser(user);
-        setLoading(false);
+        console.log(user)
+        setLoader(false);
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
@@ -34,8 +33,7 @@ const Login = () => {
   const onSubmit = (data) => {
     logInUser(data.email, data.password)
       .then((result) => {
-        setUser(result.user);
-        setLoading(false);
+        setLoader(true);
         navigate(location?.state ? location.state : "/");
         toast.success("Login Successful");
       })

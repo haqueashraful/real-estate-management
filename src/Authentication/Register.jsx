@@ -5,7 +5,7 @@ import { MyContext } from "../Context/MyContext";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { profileUpdate, registerUser, setLoading } = useContext(MyContext);
+  const { profileUpdate, registerUser, setLoader } = useContext(MyContext);
   const navigate = useNavigate()
   const {
     register,
@@ -19,9 +19,10 @@ const Register = () => {
     console.log(data.name, data.photo_url, data.email, data.password);
     registerUser(data.email, data.password)
       .then((userCredential) => {
+        setLoader(true);
         console.log(userCredential);
         profileUpdate(data.name, data.photo_url);
-        setLoading(false);
+        setLoader(false);
         navigate('/login')
       })
       .catch((error) => {

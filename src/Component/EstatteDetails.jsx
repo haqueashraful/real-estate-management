@@ -4,13 +4,13 @@ import { useLoaderData, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import { Helmet } from "react-helmet-async";
 const EstateDetails = () => {
-  const {loading} = useContext(MyContext)
+  const {loader} = useContext(MyContext)
   const data = useLoaderData()
   const { id } = useParams();
   const detailsData = data.find((item) => item.id === parseInt(id));
   const { estate_title, description, price, status, area, location, facilities, image } = detailsData;
 
-  if(loading){
+  if(loader){
     return <Loading />
   }
 
