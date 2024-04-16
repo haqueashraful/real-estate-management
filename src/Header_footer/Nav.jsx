@@ -60,7 +60,7 @@ const Nav = () => {
             ) : (
               <>
                 <div className="avatar lg:tooltip" data-tip={user?.displayName}>
-                  <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <div className="w-10 rounded-full ring ring-green-500 ring-offset-base-100 ring-offset-2">
                     <img className="w-10 h-10" src={user.photoURL} />
                   </div>
                 </div>

@@ -18,7 +18,7 @@
       "description": "Own your private island paradise with luxurious amenities.",
       "price": "$10,000,000",
       "status": "sale",
-      "area": "20 acres",
+      "area": "20 sq ft",
       "location": "Caribbean Sea",
       "facilities": ["Private Beaches", "Luxury Villas", "Helipad"],
       "image": "https://i.ibb.co/JB7mc2d/pir.jpg"
@@ -66,7 +66,7 @@
       "description": "Exclusive resort with world-class amenities and services.",
       "price": "$20,000,000",
       "status": "sale",
-      "area": "50 acres",
+      "area": "50 sq ft",
       "location": "Hawaii, USA",
       "facilities": ["Spa & Wellness Center", "Multiple Restaurants", "Private Villas"],
       "image": "https://i.ibb.co/BGMD04k/lr.jpg"

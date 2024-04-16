@@ -31,12 +31,12 @@ const EstateCard = ({ item }) => {
          
         </div>
         <div className="flex justify-between items-center mb-4">
-          <p className="text-sm text-gray-600">Area: {area} sq ft</p>
-          <p className="text-sm text-gray-600">Location: {location}</p>
+          <p className="text-lg text-gray-600 flex flex-col"><span className=" border-b-2 font-black border-green-600">Area:</span> <span className="font-bold">{area}</span></p>
+          <p className="text-lg text-gray-600 flex flex-col"><span className=" border-b-2 font-black border-green-600">Location:</span> <span className="font-bold">{location}</span></p>
         </div>
         <div className="mb-4">
-          <p className="text-sm text-gray-600 font-semibold">Facilities:</p>
-          <ul className="text-sm text-gray-700 flex justify-between items-center">
+          <p className="text-lg text-gray-600 font-semibold">Facilities:</p>
+          <ul className="text-base text-gray-700 flex justify-between items-center">
             {facilities.map((facility, index) => (
               <li key={index}>{facility}</li>
             ))}

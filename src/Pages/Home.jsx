@@ -6,6 +6,7 @@ import EstateSection from "../Component/EstateSection";
 import SwipeBanner from "../Component/SwipeBanner";
 import Loading from "../Component/Loading";
 import { Helmet } from "react-helmet-async";
+import LeafLetComponent from "../Component/LeafLetComponent";
 
 const Home = () => {
   const {loading} = useContext(MyContext)
@@ -20,7 +21,7 @@ const Home = () => {
       </Helmet>
       <Banner />
       <EstateSection  data={data}/>
-      <SwipeBanner/>
+      <LeafLetComponent />
     </div>
   );
 };
