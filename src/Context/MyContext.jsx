@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -20,6 +21,7 @@ const MyContextProvider = ({ children }) => {
   const [loader, setLoader] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
+  const gitHubProvider = new GithubAuthProvider();
 
   useEffect(() => {
     fetch("data.json")
@@ -77,15 +79,20 @@ const MyContextProvider = ({ children }) => {
   const signInWithGoogle = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        setLoading(false);
-        return result;
-      })
-      .catch((error) => {
-        setLoading(false);
-        throw error;
-      });
   };
+
+  const signInWithGitHub = () => {
+    setLoading(true);
+    return signInWithPopup(auth, gitHubProvider)
+      // .then((result) => {
+      //   setLoading(false);
+      //   return result;
+      // })
+      // .catch((error) => {
+      //   setLoading(false);
+      //   throw error;
+      // });
+  }
 
   const logOutUser = () => {
     setLoading(true);
@@ -121,6 +128,7 @@ const MyContextProvider = ({ children }) => {
     registerUser,
     profileUpdate,
     signInWithGoogle,
+    signInWithGitHub,
     setLoad,
     setLoader,
     loader,

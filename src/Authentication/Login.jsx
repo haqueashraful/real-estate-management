@@ -7,7 +7,7 @@ import { FaEye, FaGithub, FaGoogle, FaXTwitter } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-  const { setUser, logInUser, signInWithGoogle, setLoader } = useContext(MyContext);
+  const { signInWithGitHub, logInUser, signInWithGoogle, setLoader } = useContext(MyContext);
   const location = useLocation();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -29,7 +29,20 @@ const Login = () => {
         toast.error(error.message);
       });
   };
-
+  const gitHubSignIn = () => {
+    signInWithGitHub()
+      .then((result) => {
+        setLoader(true);
+        const user = result.user;
+        console.log(user);
+        setLoader(false);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.log(error)
+        toast.error(error.message);
+      })
+  };
   const onSubmit = (data) => {
     logInUser(data.email, data.password)
       .then((result) => {
@@ -131,15 +144,12 @@ const Login = () => {
             aria-label="Log in with Google"
             className="p-3 rounded-sm"
           >
-            {/* Add Google SVG Icon */}
             <FaGoogle className=" size-8" />
           </button>
           <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
-            {/* Add Twitter SVG Icon */}
             <FaXTwitter className=" size-8" />
           </button>
-          <button aria-label="Log in with GitHub" className="p-3 rounded-sm">
-            {/* Add GitHub SVG Icon */}
+          <button onClick={gitHubSignIn} aria-label="Log in with GitHub" className="p-3 rounded-sm">
             <FaGithub className=" size-8" />
           </button>
         </div>
