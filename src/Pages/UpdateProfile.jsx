@@ -2,21 +2,35 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { MyContext } from "../Context/MyContext";
 import { Helmet } from "react-helmet-async";
+import Loading from "../Component/Loading";
 
 const UpdateProfile = () => {
-  const { profileUpdate, user, setLoad, Loading } = useContext(MyContext);
+  const { profileUpdate, user, setLoad, loader } = useContext(MyContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    watch,
   } = useForm();
+
+  const watchName = watch("name", user?.displayName);
+  const watchPhotoUrl = watch("photo_url", user?.photoURL);
 
   const onSubmit = (data) => {
     profileUpdate(data.name, data.photo_url);
     setLoad(true);
   };
-  if(Loading){
-    return <Loading/>
+
+  const handleNameChange = (e) => {
+    setValue("name", e.target.value); 
+  };
+
+  const handlePhotoUrlChange = (e) => {
+    setValue("photo_url", e.target.value);
+  };
+  if(loader){
+    return <Loading></Loading>
   }
 
   return (
@@ -24,9 +38,9 @@ const UpdateProfile = () => {
       <Helmet>
         <title>Update Profile</title>
       </Helmet>
-      <div className="flex justify-center items-center gap-5">
+      <div className="flex justify-center items-center gap-5 my-20">
         {/* Profile Card */}
-        <div className="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 bg-gray-50 text-gray-800">
+        <div className="flex flex-col justify-center p-6 shadow-md rounded-xl sm:px-12 bg-gray-50 text-gray-800">
           <img
             src={user?.photoURL}
             alt=""
@@ -111,7 +125,8 @@ const UpdateProfile = () => {
             <input
               {...register("name")}
               type="text"
-              placeholder={user?.displayName}
+              value={watchName}
+              onChange={handleNameChange}
               className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
             />
             {errors.name && (
@@ -125,7 +140,8 @@ const UpdateProfile = () => {
             <input
               {...register("photo_url")}
               type="text"
-              placeholder={user?.photoURL}
+              value={watchPhotoUrl}
+              onChange={handlePhotoUrlChange}
               className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
             />
           </div>

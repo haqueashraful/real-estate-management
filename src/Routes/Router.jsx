@@ -7,6 +7,7 @@ import UpdateProfile from "../Pages/UpdateProfile";
 import PrivateRoute from "../Component/PrivateRoute";
 import EstatteDetails from "../Component/EstatteDetails";
 import ErrorPage from "../Pages/ErrorPage";
+import Favourites from "../Pages/Favourites";
 
 const Router =createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const Router =createBrowserRouter([
             {
                 path: '/profile',
                 element: <PrivateRoute><UpdateProfile/></PrivateRoute>
+            },
+            {
+                path: '/favourites',
+                element: <Favourites/>
             },
             {
                 path: '/estatedetails/:id',

@@ -37,6 +37,9 @@ const Nav = () => {
                 Update Profile
               </NavLink>
             )}
+            <NavLink to="/favourites" className="btn-rn">
+              Favourites
+              </NavLink>
           </ul>
         </div>
         <Link to='/' className="btn-rn text-xl">R-Estate</Link>
@@ -51,6 +54,9 @@ const Nav = () => {
               Update Profile
             </NavLink>
           )}
+          <NavLink to="/favourites" className="btn-rn">
+              Favourites
+              </NavLink>
         </ul>
       </div>
       <div className="navbar-end gap-6">

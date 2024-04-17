@@ -1,12 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MyContext } from "../Context/MyContext";
 import { Helmet } from "react-helmet-async";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 const Register = () => {
   const { profileUpdate, registerUser, setLoader } = useContext(MyContext);
-  const navigate = useNavigate()
+  const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -23,7 +26,7 @@ const Register = () => {
         console.log(userCredential);
         profileUpdate(data.name, data.photo_url);
         setLoader(false);
-        navigate('/login')
+        navigate("/login");
       })
       .catch((error) => {
         console.log(error.message);
@@ -39,9 +42,9 @@ const Register = () => {
 
   return (
     <>
-    <Helmet>
-      <title>Register Page</title>
-    </Helmet>
+      <Helmet>
+        <title>Register Page</title>
+      </Helmet>
       <div className="w-full mx-auto max-w-md p-4 rounded-md shadow sm:p-8 bg-gray-50 text-gray-800">
         <h2 className="mb-3 text-3xl font-semibold text-center">
           Create your account
@@ -96,8 +99,17 @@ const Register = () => {
             </div>
             <div className="space-y-2">
               <div className="flex justify-between">
-                <label htmlFor="password" className="text-sm">
-                  Password
+                <label
+                  htmlFor="password"
+                  className="text-sm w-full flex justify-between items-center"
+                >
+                  <span>Password</span>
+                  <span
+                    className="cursor-pointer"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                  </span>
                 </label>
               </div>
               <input
@@ -113,7 +125,7 @@ const Register = () => {
                       "Password must contain at least one uppercase and one lowercase letter",
                   },
                 })}
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="*****"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600"
               />

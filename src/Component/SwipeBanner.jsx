@@ -8,8 +8,10 @@ import "./style.css";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useContext } from "react";
 import { MyContext } from "../Context/MyContext";
+import { useNavigate } from "react-router-dom";
 const SwipeBanner = () => {
   const { myData } = useContext(MyContext);
+  const navigate = useNavigate();
   return (
     <div>
       <Swiper
@@ -30,7 +32,7 @@ const SwipeBanner = () => {
           <SwiperSlide key={item.id}>
             <div className="relative h-full">
               <img src={item.image} alt="" className="h-full object-cover" />
-              <div className="absolute w-3/4 lg:w-1/3 mx-auto h-1/2 lg:h-1/3 my-auto inset-0 flex flex-col bg-white/80 text-black rounded-md ">
+              <div onClick={() => navigate(`/estatedetails/${item.id}`)} className="absolute w-3/4 lg:w-1/3 mx-auto h-1/2 lg:h-1/3 my-auto inset-0 flex flex-col bg-white/80 text-black rounded-md ">
                 <div className="my-auto mx-auto space-y-3 lg:space-y-5">
                   <h1 className="text-xl lg:text-3xl font-bold">
                     {item.estate_title}{" "}

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useContext, useState } from "react";
 import { MyContext } from "../Context/MyContext";
-import { FaEye, FaGithub, FaGoogle, FaXTwitter } from "react-icons/fa6";
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle, FaXTwitter } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
@@ -97,7 +97,10 @@ const Login = () => {
                 className="cursor-pointer"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                <FaEye></FaEye>
+                {
+                  showPassword ?  <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                }
+               
               </span>
             </label>
             <input
