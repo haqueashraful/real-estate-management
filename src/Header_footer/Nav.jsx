@@ -94,7 +94,7 @@ const Nav = () => {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="menu menu-sm dropdown-content mt-3 -left-12 z-50 p-2 shadow bg-base-100 border border-green-400 rounded-box w-52"
+                    className="menu menu-sm dropdown-content mt-3 -left-12 z-50 p-2 shadow bg-base-100 border border-green-400 rounded-box"
                   >
                     <li >
                     <Link onClick={logOutUser}>
@@ -103,7 +103,7 @@ const Nav = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="hidden md:block">
+                <div className="hidden md:flex justify-center items-center gap-5">
                   <div
                     className="avatar md:tooltip"
                     data-tip={user?.displayName}
@@ -117,7 +117,7 @@ const Nav = () => {
                   </div>
                   <button
                     onClick={logOutUser}
-                    className="btn-rn hidden md:blok"
+                    className="btn-rn "
                   >
                     SignOut
                   </button>
