@@ -1,8 +1,23 @@
-# React + Vite
+# R-Estate
+[**Live**](https://assignment-nine-ha.netlify.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features and Characteristics: 
 
-Currently, two official plugins are available:
+- You can Sign in  with **Email And Password**
+- You can sign in  with **google** 
+- You can sign in with **github**
+- You cannot See *Estate details* without **Login**
+- You can edit you Login info in update profile **Name and Phot o_Url**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+--------------------------------------------------------
+
+> npm Packages i used 
+- [React LeafLet](https://react-leaflet.js.org/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Swiper Slider](https://swiperjs.com/)
+
+
+
+
+
+
