@@ -29,7 +29,7 @@ const SwipeBanner = () => {
         className="mySwiper"
       >
         {myData.map((item) => (
-          <SwiperSlide key={item.id}>
+          <SwiperSlide className="swiper-slide" style={{marginRight: 0}} key={item.id}>
             <div className="relative h-full w-full">
               <img src={item.image} alt="" className="h-full object-cover" />
               <div onClick={() => navigate(`/estatedetails/${item.id}`)} className="absolute w-4/5 md:w-2/3  mx-auto h-1/2 md:h-1/3  my-auto inset-0 flex flex-col bg-white/80 text-black rounded-md ">
