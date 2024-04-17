@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { MyContext } from "../Context/MyContext";
+import CardSkeleton from "./CardSkeleton";
 
 const EstateCard = ({ item }) => {
   const navigate = useNavigate();
+  const {loader} = useContext(MyContext)
   const {
     id,
     estate_title,
@@ -15,8 +19,12 @@ const EstateCard = ({ item }) => {
     image,
   } = item;
 
+  if(loader){
+    return <CardSkeleton></CardSkeleton>
+  }
+
   return (
-    <div className="max-w-md relative bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="relative bg-white rounded-lg shadow-md overflow-hidden">
       <img
         className="w-full h-48 object-cover"
         src={image}

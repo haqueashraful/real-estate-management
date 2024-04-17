@@ -2,19 +2,19 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MyContext } from "../Context/MyContext";
 import Loading from "../Component/Loading";
-import './Nav.css'
+import "./Nav.css";
 
 const Nav = () => {
   const { user, logOutUser, loader } = useContext(MyContext);
 
   return (
     <div className="navbar bg-base-100 mt-5">
-      <div className="navbar-start">
+      <div className="navbar-start items-center">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -31,18 +31,30 @@ const Nav = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <NavLink className='btn-rn' to="/">Home</NavLink>
-            {user && (
-              <NavLink to="/profile" className="btn-rn">
-                Update Profile
+            <li>
+              <NavLink className="btn-rn" to="/">
+                Home
               </NavLink>
-            )}
-            <NavLink to="/favourites" className="btn-rn">
-              Favourites
+            </li>
+            <li>
+              {" "}
+              {user && (
+                <NavLink to="/profile" className="btn-rn">
+                  Update Profile
+                </NavLink>
+              )}
+            </li>
+            <li>
+              {" "}
+              <NavLink to="/favourites" className="btn-rn">
+                Favourites
               </NavLink>
+            </li>
           </ul>
         </div>
-        <Link to='/' className="btn-rn text-xl">R-Estate</Link>
+        <Link to="/" className="btn-rn text-xl">
+          R-Estate
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 flex gap-5">
@@ -55,8 +67,8 @@ const Nav = () => {
             </NavLink>
           )}
           <NavLink to="/favourites" className="btn-rn">
-              Favourites
-              </NavLink>
+            Favourites
+          </NavLink>
         </ul>
       </div>
       <div className="navbar-end gap-6">
@@ -66,14 +78,50 @@ const Nav = () => {
               <Loading />
             ) : (
               <>
-                <div className="avatar md:tooltip" data-tip={user?.displayName}>
-                  <div className="w-10 rounded-full ring ring-green-500 ring-offset-base-100 ring-offset-2">
-                    <img className="w-10 h-10" src={user.photoURL} />
+                <div className="dropdown">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost md:hidden avatar md:tooltip"
+                    data-tip={user?.displayName}
+                  >
+                    <div className="w-6 md:w-10 rounded-full ring ring-green-500 ring-offset-base-100 ring-offset-2">
+                      <img
+                        className="w-6 h-6 md:w-10 md:h-10"
+                        src={user.photoURL}
+                      />
+                    </div>
                   </div>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content mt-3 -left-12 z-50 p-2 shadow bg-base-100 border border-green-400 rounded-box w-52"
+                  >
+                    <li >
+                    <Link onClick={logOutUser}>
+                      SignOut
+                    </Link>
+                    </li>
+                  </ul>
                 </div>
-                <button onClick={logOutUser} className="btn-rn">
-                  SignOut
-                </button>
+                <div className="hidden md:block">
+                  <div
+                    className="avatar md:tooltip"
+                    data-tip={user?.displayName}
+                  >
+                    <div className=" w-6 md:w-10 rounded-full ring ring-green-500 ring-offset-base-100 ring-offset-2">
+                      <img
+                        className="w-6 h-6 md:w-10 md:h-10"
+                        src={user.photoURL}
+                      />
+                    </div>
+                  </div>
+                  <button
+                    onClick={logOutUser}
+                    className="btn-rn hidden md:blok"
+                  >
+                    SignOut
+                  </button>
+                </div>
               </>
             )}
           </>

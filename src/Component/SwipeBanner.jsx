@@ -30,19 +30,19 @@ const SwipeBanner = () => {
       >
         {myData.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className="relative h-full">
+            <div className="relative h-full w-full">
               <img src={item.image} alt="" className="h-full object-cover" />
-              <div onClick={() => navigate(`/estatedetails/${item.id}`)} className="absolute w-3/4 lg:w-1/3 mx-auto h-1/2 lg:h-1/3 my-auto inset-0 flex flex-col bg-white/80 text-black rounded-md ">
+              <div onClick={() => navigate(`/estatedetails/${item.id}`)} className="absolute w-4/5 md:w-2/3  mx-auto h-1/2 md:h-1/3  my-auto inset-0 flex flex-col bg-white/80 text-black rounded-md ">
                 <div className="my-auto mx-auto space-y-3 lg:space-y-5">
-                  <h1 className="text-xl lg:text-3xl font-bold">
+                  <h1 className="text-lg md:text-3xl font-bold">
                     {item.estate_title}{" "}
-                    <sup className=" text-white text-base lg:text-xl bg-red-500 rounded-full px-2">
+                    <sup className=" text-white text-sm md:text-xl bg-red-500 rounded-full px-2">
                       {item.area}
                     </sup>
                   </h1>
-                  <div className="flex justify-between lg:gap-5">
-                    <p className="text-lg">{item.price}</p>
-                    <p className="text-lg">{item.location}</p>
+                  <div className="md:flex justify-between md:gap-5">
+                    <p className="text-sm md:text-lg">{item.price}</p>
+                    <p className="text-sm md:text-lg">{item.location}</p>
                   </div>
                   <p>{item.description}</p>
                 </div>

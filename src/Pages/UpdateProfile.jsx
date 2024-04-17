@@ -38,7 +38,7 @@ const UpdateProfile = () => {
       <Helmet>
         <title>Update Profile</title>
       </Helmet>
-      <div className="flex justify-center items-center gap-5 my-20">
+      <div className="md:flex justify-center items-center gap-5 my-20">
         {/* Profile Card */}
         <div className="flex flex-col justify-center p-6 shadow-md rounded-xl sm:px-12 bg-gray-50 text-gray-800">
           <img

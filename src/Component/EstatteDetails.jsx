@@ -15,7 +15,7 @@ const EstateDetails = () => {
   const [isFavorite, setIsFavorite] = useState(false);
   const detailsData = data.find((item) => item.id === parseInt(id));
 
-  
+
   const {
     estate_title,
     description,
@@ -75,15 +75,15 @@ const EstateDetails = () => {
       </div>
       <div className="bg-white p-4 rounded-lg shadow-md">
         <p className="text-gray-700 mb-2">{description}</p>
-        <div className="flex items-center text-gray-500 mb-2">
+        <div className="flex items-center gap-3 text-gray-500 mb-2">
           <CiLocationOn />
           <span>{location}</span>
         </div>
-        <div className="flex items-center text-gray-500 mb-2">
+        <div className="flex items-center gap-3 text-gray-500 mb-2">
           <TbChartArea />
           <span>{`${area} Sq ft`}</span>
         </div>
-        <div className="flex items-center text-gray-500 mb-2">
+        <div className="flex items-center gap-3 text-gray-500 mb-2">
           <IoPricetagOutline />
           <span>{`${price} per month`}</span>
         </div>

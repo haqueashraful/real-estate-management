@@ -4,7 +4,7 @@ import Footer from "../Header_footer/Footer";
 
 const Layout = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col container mx-auto w-full ">
       <div>
         <Nav />
       </div>

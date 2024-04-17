@@ -34,7 +34,7 @@ const Router =createBrowserRouter([
             },
             {
                 path: '/favourites',
-                element: <Favourites/>
+                element: <PrivateRoute><Favourites/></PrivateRoute>
             },
             {
                 path: '/estatedetails/:id',
