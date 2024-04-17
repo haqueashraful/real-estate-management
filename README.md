@@ -1,5 +1,5 @@
-# R-Estate
-[**Live**](https://assignment-nine-ha.netlify.app/)
+# [R-Estate](https://assignment-nine-ha.netlify.app/)
+[**Live_lInk**](https://assignment-nine-ha.netlify.app/)
 
 ## Features and Characteristics: 
 
@@ -11,7 +11,7 @@
 
 --------------------------------------------------------
 
-> npm Packages i used 
+> **npm Packages i used**
 - [React LeafLet](https://react-leaflet.js.org/)
 - [React Hook Form](https://react-hook-form.com/)
 - [Swiper Slider](https://swiperjs.com/)
