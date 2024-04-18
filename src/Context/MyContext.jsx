@@ -21,6 +21,8 @@ const MyContextProvider = ({ children }) => {
   const [myData, setMyData] = useState([]);
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
+  const [stateLoader, setStateLoader] = useState(true);
+  
 
   const googleProvider = new GoogleAuthProvider();
   const gitHubProvider = new GithubAuthProvider();
@@ -91,15 +93,15 @@ const MyContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    setLoader(true)
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setLoad(true);
-        setUser(currentUser);
-      setLoader(false);
+      setUser(currentUser);
+      setStateLoader(false)
     });
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, []); 
 
   const value = {
     setUser,
@@ -112,6 +114,8 @@ const MyContextProvider = ({ children }) => {
     signInWithTwitter,
     setLoad,
     setLoader,
+    setStateLoader,
+    stateLoader,
     loader,
     myData,
     user,

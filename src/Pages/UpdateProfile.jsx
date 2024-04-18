@@ -117,7 +117,7 @@ const UpdateProfile = () => {
         </div>
 
         {/* Profile Form */}
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center p-6 shadow-md rounded-xl px-14 bg-gray-50 text-gray-800">
           <div className="space-y-2">
             <label htmlFor="name" className="block text-sm">
               Your Name
