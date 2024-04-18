@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
+  TwitterAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -23,6 +24,7 @@ const MyContextProvider = ({ children }) => {
 
   const googleProvider = new GoogleAuthProvider();
   const gitHubProvider = new GithubAuthProvider();
+  const twitterProvider = new TwitterAuthProvider();
 
   useEffect(() => {
     fetch("data.json")
@@ -86,7 +88,10 @@ const MyContextProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, gitHubProvider)
   }
-
+  const signInWithTwitter = () => {
+    setLoading(true);
+    return signInWithPopup(auth, twitterProvider)
+  }
   const logOutUser = () => {
     setLoading(true);
     return signOut(auth)
@@ -122,11 +127,13 @@ const MyContextProvider = ({ children }) => {
     profileUpdate,
     signInWithGoogle,
     signInWithGitHub,
+    signInWithTwitter,
     setLoad,
     setLoader,
     loader,
     myData,
     user,
+    load
   };
 
   return <MyContext.Provider value={value}>{children}</MyContext.Provider>;

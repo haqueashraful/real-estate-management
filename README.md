@@ -5,6 +5,7 @@
 
 - You can Sign in  with **Email And Password**
 - You can sign in  with **google** 
+- You can sign in with **twitter**
 - You can sign in with **github**
 - You cannot See *Estate details* without **Login**
 - You can edit you Login info in update profile **Name and Phot o_Url**

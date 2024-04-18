@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useContext, useState } from "react";
 import { MyContext } from "../Context/MyContext";
-import { FaEye, FaEyeSlash, FaGithub, FaGoogle, FaXTwitter } from "react-icons/fa6";
+import { FaEye, FaEyeSlash,  FaGithub, FaGoogle, FaTwitter,  } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-  const { signInWithGitHub, logInUser, signInWithGoogle, setLoader } = useContext(MyContext);
+  const { signInWithGitHub, signInWithTwitter, logInUser, signInWithGoogle, setLoader } = useContext(MyContext);
   const location = useLocation();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -18,10 +18,9 @@ const Login = () => {
   } = useForm();
   const googleSignIn = () => {
     signInWithGoogle()
-      .then((result) => {
+      .then(() => {
         setLoader(true);
-        const user = result.user;
-        console.log(user)
+        toast.success("Login with Google Successful");
         setLoader(false);
         navigate(location?.state ? location.state : "/");
       })
@@ -29,13 +28,27 @@ const Login = () => {
         toast.error(error.message);
       });
   };
+  
+
+  const twitterSignIn = () => {
+    signInWithTwitter()
+      .then(() => {
+        setLoader(true);
+        setLoader(false);
+        toast.success("Login with Twitter Successful");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      })
+  }
+
   const gitHubSignIn = () => {
     signInWithGitHub()
-      .then((result) => {
+      .then(() => {
         setLoader(true);
-        const user = result.user;
-        console.log(user);
         setLoader(false);
+        toast.success("Login with GitHub Successful");
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
@@ -45,7 +58,7 @@ const Login = () => {
   };
   const onSubmit = (data) => {
     logInUser(data.email, data.password)
-      .then((result) => {
+      .then(() => {
         setLoader(true);
         navigate(location?.state ? location.state : "/");
         toast.success("Login Successful");
@@ -149,15 +162,15 @@ const Login = () => {
           >
             <FaGoogle className=" size-8" />
           </button>
-          <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
-            <FaXTwitter className=" size-8" />
+          <button onClick={twitterSignIn} aria-label="Log in with Twitter" className="p-3 rounded-sm">
+            <FaTwitter className=" size-8" />
           </button>
           <button onClick={gitHubSignIn} aria-label="Log in with GitHub" className="p-3 rounded-sm">
             <FaGithub className=" size-8" />
           </button>
         </div>
         <p className="text-xs text-center sm:px-6 text-gray-600">
-          Don't have an account?{" "}
+          Don’t have an account?{" "}
           <Link to="/register" className="underline text-gray-800">
             Sign up
           </Link>
