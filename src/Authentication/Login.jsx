@@ -67,13 +67,13 @@ const Login = () => {
       .catch((error) => {
         toast.error(error.message);
       });
-    // if (Object.keys(errors).length > 0) {
-    //   Object.values(errors).forEach((error) => {
-    //     toast.error(error.message);
-    //   });
-    // } else {
-    //   console.log(data);
-    // }
+    if (Object.keys(errors).length > 0) {
+      Object.values(errors).forEach((error) => {
+        toast.error(error.message);
+      });
+    } else {
+      console.log(data);
+    }
   };
 
   return (

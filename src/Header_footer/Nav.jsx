@@ -95,10 +95,8 @@ const Nav = () => {
                     tabIndex={0}
                     className="menu menu-sm dropdown-content mt-3 -left-12 z-50 p-2 shadow bg-base-100 border border-green-400 rounded-box"
                   >
-                    <li >
-                    <Link onClick={logOutUser}>
-                      SignOut
-                    </Link>
+                    <li>
+                      <Link onClick={logOutUser}>SignOut</Link>
                     </li>
                   </ul>
                 </div>
@@ -114,10 +112,7 @@ const Nav = () => {
                       />
                     </div>
                   </div>
-                  <button
-                    onClick={logOutUser}
-                    className="btn-rn "
-                  >
+                  <button onClick={logOutUser} className="btn-rn ">
                     SignOut
                   </button>
                 </div>
@@ -125,10 +120,17 @@ const Nav = () => {
             )}
           </>
         ) : (
-          <NavLink to="/login" className="btn">
-            Login
-          </NavLink>
-        )}{" "}
+          <>
+            {loader ? (
+              <span className="loading loading-ring loading-lg"></span>
+            ) : (
+                <NavLink to="/login" className="btn">
+                  Login
+                </NavLink>
+              
+            )}
+          </>
+        )}
       </div>
     </div>
   );
