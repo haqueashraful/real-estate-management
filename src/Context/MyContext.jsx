@@ -12,6 +12,7 @@ import {
 } from "firebase/auth";
 import auth from "../FireBase/Firebase.config";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 const MyContext = createContext();
 
@@ -19,7 +20,6 @@ const MyContextProvider = ({ children }) => {
   const [load, setLoad] = useState(false);
   const [myData, setMyData] = useState([]);
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [loader, setLoader] = useState(true);
 
   const googleProvider = new GoogleAuthProvider();
@@ -31,7 +31,7 @@ const MyContextProvider = ({ children }) => {
       .then((response) => response.json())
       .then((data) => {
         setMyData(data);
-        setLoading(false);
+        setLoader(false);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -43,10 +43,9 @@ const MyContextProvider = ({ children }) => {
       photoURL: photo_url || user?.photoURL,
     })
       .then(() => {
-        console.log("Profile updated successfully");
       })
       .catch((error) => {
-        console.error("Error updating profile:", error.message);
+        toast.error("Cannot update profile:", error.message);
       })
       .finally(() => {
         setLoad(false);
@@ -54,70 +53,53 @@ const MyContextProvider = ({ children }) => {
   };
 
   const logInUser = (email, password) => {
-    setLoading(true);
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        setLoading(false);
-        return result;
-      })
-      .catch((error) => {
-        setLoading(false);
-        throw error;
-      });
   };
 
   const registerUser = (email, password) => {
-    setLoading(true);
+    setLoader(true);
     return createUserWithEmailAndPassword(auth, email, password)
-      .then((result) => {
-        setLoading(false);
-        return result;
-      })
-      .catch((error) => {
-        setLoading(false);
-        throw error;
-      });
   };
 
   const signInWithGoogle = () => {
-    setLoading(true);
+    setLoader(true);
     return signInWithPopup(auth, googleProvider)
   };
 
   const signInWithGitHub = () => {
-    setLoading(true);
+    setLoader(true);
     return signInWithPopup(auth, gitHubProvider)
   }
   const signInWithTwitter = () => {
-    setLoading(true);
+    setLoader(true);
     return signInWithPopup(auth, twitterProvider)
   }
   const logOutUser = () => {
-    setLoading(true);
     return signOut(auth)
       .then(() => {
+        toast.success("Logout successfully");
         setUser(null);
       })
       .catch((error) => {
-        console.error("Error signing out:", error.message);
+        toast.error("Error signing out:", error.message);
         throw error;
       })
       .finally(() => {
-        setLoading(false);
+        setLoader(false);
       });
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
-      setLoader(false)
-      console.log(currentUser, loading,  loader)
+      setLoad(true);
+        setUser(currentUser);
+      setLoader(false);
     });
     return () => {
       unsubscribe();
     };
-  }, []); 
+  }, []);
 
   const value = {
     setUser,

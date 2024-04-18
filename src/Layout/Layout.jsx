@@ -8,7 +8,7 @@ const Layout = () => {
       <div>
         <Nav />
       </div>
-      <div className="flex-grow">
+      <div className="flex-grow my-5">
         <Outlet />
       </div>
       <div className=" justify-end">

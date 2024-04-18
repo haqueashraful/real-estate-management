@@ -148,6 +148,13 @@ const Login = () => {
             Sign in
           </button>
         </form>
+        
+        <p className="text-xs text-center sm:px-6 text-gray-600">
+          Don’t have an account?{" "}
+          <Link to="/register" className="underline text-lg text-blue-800">
+            Sign up
+          </Link>
+        </p>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
           <p className="px-3 text-sm text-gray-600">
@@ -170,12 +177,6 @@ const Login = () => {
             <FaGithub className=" size-8" />
           </button>
         </div>
-        <p className="text-xs text-center sm:px-6 text-gray-600">
-          Don’t have an account?{" "}
-          <Link to="/register" className="underline text-gray-800">
-            Sign up
-          </Link>
-        </p>
       </div>
     </>
   );

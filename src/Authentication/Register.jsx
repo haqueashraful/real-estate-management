@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { MyContext } from "../Context/MyContext";
 import { Helmet } from "react-helmet-async";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const { profileUpdate, registerUser, setLoader } = useContext(MyContext);
@@ -18,20 +19,18 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log(data.name, data.photo_url, data.email, data.password);
     registerUser(data.email, data.password)
-      .then((userCredential) => {
+      .then(() => {
         setLoader(true);
-        console.log(userCredential);
-        profileUpdate(data.name, data.photo_url);
+        profileUpdate(data.name, data.photo_url)
+        toast.success("Register Successful");
         setLoader(false);
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error(error.message);
       });
-
+   
     reset({
       name: "",
       photo_url: "",
@@ -146,7 +145,7 @@ const Register = () => {
 
         <p className="text-sm text-center text-gray-600">
           Have an account?
-          <Link to="/login" className="focus:underline hover:underline">
+          <Link to="/login" className="underline text-lg text-blue-800 hover:underline">
             Sign In here
           </Link>
         </p>
