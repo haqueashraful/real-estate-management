@@ -1,4 +1,6 @@
 import EstateCard from "./EstateCard";
+import PropTypes from "prop-types";
+
 
 const EstateSection = ({data}) => {
 
@@ -15,5 +17,9 @@ const EstateSection = ({data}) => {
     </div>
   );
 };
+
+EstateSection.propTypes = {
+  data : PropTypes.array.isRequired
+}
 
 export default EstateSection;

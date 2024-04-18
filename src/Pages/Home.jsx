@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { MyContext } from "../Context/MyContext";
 import {useLoaderData} from "react-router-dom";
 import EstateSection from "../Component/EstateSection";
-import SwipeBanner from "../Component/SwipeBanner";
 import Loading from "../Component/Loading";
 import { Helmet } from "react-helmet-async";
 import LeafLetComponent from "../Component/LeafLetComponent";

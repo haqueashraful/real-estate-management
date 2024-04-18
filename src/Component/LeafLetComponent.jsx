@@ -1,8 +1,16 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import markerIcon from '../assets/address-icon.png';
 
 const LeafLetComponent = () => {
-  const position = [51.505, -0.09]; 
+  const position = [51.505, -0.09];
+  
+  const customIcon = new L.Icon({
+    iconUrl: markerIcon,
+    iconSize: [35, 50],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+  })
 
   return (
     <>
@@ -15,7 +23,7 @@ const LeafLetComponent = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
+        <Marker position={position} icon={customIcon}>
           <Popup>
             A pretty LeafLet <br /> Using in Assignment 9 .
           </Popup>

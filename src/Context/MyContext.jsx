@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import auth from "../FireBase/Firebase.config";
+import PropTypes from "prop-types";
 
 const MyContext = createContext();
 
@@ -84,14 +85,6 @@ const MyContextProvider = ({ children }) => {
   const signInWithGitHub = () => {
     setLoading(true);
     return signInWithPopup(auth, gitHubProvider)
-      // .then((result) => {
-      //   setLoading(false);
-      //   return result;
-      // })
-      // .catch((error) => {
-      //   setLoading(false);
-      //   throw error;
-      // });
   }
 
   const logOutUser = () => {
@@ -138,5 +131,9 @@ const MyContextProvider = ({ children }) => {
 
   return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
 };
+
+MyContextProvider.propTypes = {
+  children: PropTypes.element.isRequired,
+}
 
 export { MyContext, MyContextProvider };

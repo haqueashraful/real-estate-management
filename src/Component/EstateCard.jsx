@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { MyContext } from "../Context/MyContext";
 import CardSkeleton from "./CardSkeleton";
+import PropTypes from "prop-types";
 
 const EstateCard = ({ item }) => {
   const navigate = useNavigate();
@@ -71,4 +72,8 @@ const EstateCard = ({ item }) => {
   );
 };
 
+
+EstateCard.propTypes = {
+  item: PropTypes.object.isRequired,
+}
 export default EstateCard;
