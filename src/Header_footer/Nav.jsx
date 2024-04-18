@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MyContext } from "../Context/MyContext";
-import Loading from "../Component/Loading";
 import "./Nav.css";
 
 const Nav = () => {
@@ -29,7 +28,7 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-44"
           >
             <li>
               <NavLink className="btn-rn" to="/">
@@ -75,7 +74,7 @@ const Nav = () => {
         {user ? (
           <>
             {loader ? (
-              <Loading />
+              <span className="loading loading-ring loading-lg"></span>
             ) : (
               <>
                 <div className="dropdown">
