@@ -1,7 +1,8 @@
 .swiper {
     width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 12px;
   }
   
   .swiper-slide {
@@ -9,7 +10,6 @@
     background-size: cover;
     width: 100%;
     height: 500px;
-    border-radius: 50px;
   }
   
   .swiper-slide img {
@@ -17,3 +17,6 @@
     width: 100%;
   }
   
+  .swiper-wrapper{
+    border-radius: 50px;
+  }

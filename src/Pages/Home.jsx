@@ -6,6 +6,7 @@ import EstateSection from "../Component/EstateSection";
 import Loading from "../Component/Loading";
 import { Helmet } from "react-helmet-async";
 import LeafLetComponent from "../Component/LeafLetComponent";
+import ContactSection from "../Component/ContactSection";
 
 const Home = () => {
   const {loading} = useContext(MyContext)
@@ -21,6 +22,7 @@ const Home = () => {
       <Banner />
       <EstateSection  data={data}/>
       <LeafLetComponent />
+      <ContactSection />
     </div>
   );
 };
