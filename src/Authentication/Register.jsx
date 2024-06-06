@@ -1,10 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
-import { MyContext } from "../Context/MyContext";
 import { Helmet } from "react-helmet-async";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { toast } from "react-toastify";
+import { MyContext } from "../Context/MyContext";
 
 const Register = () => {
   const { profileUpdate, registerUser, setLoader } = useContext(MyContext);

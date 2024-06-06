@@ -2,9 +2,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useContext, useState } from "react";
-import { MyContext } from "../Context/MyContext";
 import { FaEye, FaEyeSlash,  FaGithub, FaGoogle, FaTwitter,  } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
+import { MyContext } from "../Context/MyContext";
 
 const Login = () => {
   const { signInWithGitHub, signInWithTwitter, logInUser, signInWithGoogle, setLoader } = useContext(MyContext);
