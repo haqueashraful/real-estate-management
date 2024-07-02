@@ -1,5 +1,26 @@
 # [R-Estate](https://assignment-nine-ha.netlify.app/)
 [**Live_lInk**](https://assignment-nine-ha.netlify.app/)
+##
+
+> Clone the project: 
+``` clone full 
+git clone https://github.com/haqueashraful/real-estate-management.git
+```
+
+> Change directory: 
+``` change directory
+cd real-estate-management
+```
+
+> Make Ready for Run: 
+``` Install dependencies
+npm install
+```
+
+> Run the file :
+```Run the file
+ npm run dev 
+```
 
 ## Features and Characteristics: 
 
